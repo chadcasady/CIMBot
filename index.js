@@ -30,6 +30,10 @@ controller.on('bot_channel_join', function (bot, message) {
   bot.reply(message, "I'm here!")
 })
 
+controller.hears(['beer'], ['direct_mention', 'direct_message', 'mention'], function (bot, message) {
+  bot.reply(message, 'I\'m a teetotaler.')
+})
+
 controller.hears(['hipaa', 'phi'], ['direct_mention', 'direct_message', 'mention'], function (bot, message) {
   bot.reply(message, 'HIPAA (with one P and two A\'s), is not really an issue here since I\'m not sharing PHI.')
   bot.reply(message, 'Don\'t be so paranoid. Sheesh.')
