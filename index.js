@@ -71,7 +71,7 @@ controller.hears(['referral'], 'direct_message', function(bot,message) {
           pattern: bot.utterances.no,
           callback: function(response, convo) {
             convo.say('No problem. Let me know if you change your mind.');
-            convo.stop();
+            convo.next();
           }
         }
         ]);
