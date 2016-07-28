@@ -142,7 +142,7 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
     pretext: 'I ain\'t that smart. :sunglasses: :thumbsup:',
     title: 'Obligatory link to the PH Tech web site here.',
     image_url: 'https://storage.googleapis.com/beepboophq/_assets/bot-1.22f6fb.png',
-    title_link: 'https://phtech.com/',
+    title_link: 'http://www.phtech.com/',
     text: text,
     color: '#7CD197'
   }]
