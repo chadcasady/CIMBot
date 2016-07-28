@@ -30,8 +30,13 @@ controller.on('bot_channel_join', function (bot, message) {
   bot.reply(message, "I'm here!")
 })
 
-controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
-  bot.reply(message, 'Yes? I\'m listening.')
+controller.hears(['hello', 'hi'], ['direct_mention', 'mention'], function (bot, message) {
+  bot.reply(message, 'Hola amigo!')
+  bot.reply(message, 'Or is it amiga? I\'m not smart enough to know just yet.')
+})
+
+controller.hears(['amiga', 'amigo'], ['direct_mention', 'mention'], function (bot, message) {
+  bot.reply(message, 'Good to know. Moving on now.')
 })
 
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
@@ -47,13 +52,13 @@ controller.hears('.*', ['mention'], function (bot, message) {
   bot.reply(message, 'You really do care about me. :heart:')
 })
 
-controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
+controller.hears('help', ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
   bot.reply(message, 'Helping is exactly what I\'m here to do! :sunglasses: :thumbsup:')
-  bot.reply(message, 'What do you need help with?')
+  bot.reply(message, 'If you want me to find a referral, just ask. Otherwise, I\'m just here to look pretty.)
 })
 
 controller.hears(['eligibility', 'member', 'claim'], ['direct_message', 'direct_mention'], function (bot, message) {
-  bot.reply(message, 'Sorry. I don\'t know how to deal with that stuff yet.')
+  bot.reply(message, 'Sounds complex. I\'m afraid I don\'t know how to deal with that stuff yet.')
 })
 
 controller.hears(['referral'], ['direct_message', 'direct_mention'], function(bot,message) {
