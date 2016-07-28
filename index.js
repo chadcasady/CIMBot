@@ -55,23 +55,23 @@ controller.hears(['referral'], 'direct_message', function(bot,message) {
         {
           pattern: bot.utterances.yes,
           callback: function(response, convo) {
-            convo.say('Awesome.');
-            askSize(response, convo);
+            convo.say('Great!');
+            askWhichRef(response, convo);
             convo.next();
           }
         }
         ]);
       };
-    askSize = function(response, convo) {
-      convo.ask('What size do you want?', function(response, convo) {
-        convo.say('Ok.')
+    askWhichRef = function(response, convo) {
+      convo.ask('What\'s the referral number you want me to find?', function(response, convo) {
+        convo.say('Got it.')
         askWhereDeliver(response, convo);
         convo.next();
-      });
+      }, {'key': 'referralID'});
     }
     askWhereDeliver = function(response, convo) {
-      convo.ask('So where do you want it delivered?', function(response, convo) {
-        convo.say('Ok! Good bye.');
+      convo.ask('Do you want referral # ' + convo.extractResponse('referralID') + ' delivered by email, or just include a link to it here?', function(response, convo) {
+        convo.say('Your wish is my command.');
         convo.next();
       });
     }
