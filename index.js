@@ -30,14 +30,14 @@ controller.on('bot_channel_join', function (bot, message) {
   bot.reply(message, "I'm here!")
 })
 
-controller.hears(['hello', 'hi'], ['direct_mention', 'mention'], function (bot, message) {
-  bot.reply(message, 'Hola amigo!')
-  bot.reply(message, 'Or is it amiga? I\'m not smart enough to know just yet.')
-})
-
 controller.hears(['hipaa', 'phi'], ['direct_mention', 'direct_message', 'mention'], function (bot, message) {
   bot.reply(message, 'HIPAA (with one P and two A\'s), is not really an issue here since I\'m not sharing PHI.')
   bot.reply(message, 'Don\'t be so paranoid. Sheesh.')
+})
+
+controller.hears(['hello', 'hi'], ['direct_mention', 'mention'], function (bot, message) {
+  bot.reply(message, 'Hola amigo!')
+  bot.reply(message, 'Or is it amiga? I\'m not smart enough to know just yet.')
 })
 
 controller.hears(['amiga', 'amigo'], ['direct_mention', 'mention'], function (bot, message) {
