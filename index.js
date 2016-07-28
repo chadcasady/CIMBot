@@ -59,21 +59,53 @@ controller.hears(['referral'], 'direct_message', function(bot,message) {
             askWhichRef(response, convo);
             convo.next();
           }
+        },
+        {
+          pattern: bot.utterances.no,
+          callback: function(response, convo) {
+            convo.say('No problem. Let me know if you change your mind.');
+            convo.stop();
+          }
         }
         ]);
       };
     askWhichRef = function(response, convo) {
       convo.ask('What\'s the referral number you want me to find?', function(response, convo) {
-        convo.say('Got it.')
+        convo.say('Searching...')
         askWhereDeliver(response, convo);
         convo.next();
       }, {'key': 'referralID'});
     }
     askWhereDeliver = function(response, convo) {
-      convo.ask('Do you want referral # ' + convo.extractResponse('referralID') + ' delivered by email, or just include a link to it here?', function(response, convo) {
-        convo.say('Your wish is my command.');
-        convo.next();
-      });
+      convo.ask('Do you want referral # ' + convo.extractResponse('referralID') + ' delivered by email, or just include a link to it here?', [
+        {
+          pattern: 'email',
+          callback: function(response, convo) {
+            convo.say('Ha! I'm not that smart yet. Here\'s a link instead:');
+            reflinkmsg = 'https://cimdemo.phtech.com?referral_id=' + convo.extractResponse('referralID');
+            convo.say(reflinkmsg);
+            convo.next();
+          }
+        },
+        {
+          pattern: 'link',
+          callback: function(response, convo) {
+            convo.say('Here\'s the link to your referral:');
+            reflinkmsg = 'https://cimdemo.phtech.com?referral_id=' + convo.extractResponse('referralID');
+            convo.say(reflinkmsg);
+            convo.next();
+          }
+        },
+        {
+          default: true,
+          callback: function(response, convo) {
+            convo.say('Here it is anyway:');
+            reflinkmsg = 'https://cimdemo.phtech.com?referral_id=' + convo.extractResponse('referralID');
+            convo.say(reflinkmsg);
+            convo.next();
+          }
+        }
+        ]);
     }
 
     bot.startConversation(message, askReferral);
