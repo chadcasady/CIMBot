@@ -49,7 +49,7 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
 })
 
 
-controller.hears(['referral'], 'message_received', function(bot,message) {
+controller.hears(['referral'], 'direct_message', function(bot,message) {
     askReferral = function(response, convo) {
       convo.ask('Do you want me to find a referral for you?', [
         {
