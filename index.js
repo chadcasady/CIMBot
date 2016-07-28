@@ -52,7 +52,7 @@ var help = 'I will respond to the following messages: \n' +
       '`bot help` to see this again.'
   bot.reply(message, help)
 */
-  bot.reply(message, 'Helping is exactly what I'm here to do! :sunglasses: :thumbsup:')
+  bot.reply(message, 'Helping is exactly what I\'m here to do! :sunglasses: :thumbsup:')
   bot.reply(message, 'What do you need help with?')
 })
 
