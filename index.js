@@ -48,7 +48,7 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
   bot.reply(message, 'What do you need help with?')
 })
 
-controller.hears('thanks', ['direct_message', 'direct_mention'], function (bot, message) {
+controller.hears(['thanks', 'thank you'], ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Don\'t mention it. :thumbsup:')
 })
 
@@ -91,6 +91,7 @@ controller.hears(['referral'], 'direct_message', function(bot,message) {
             convo.say('Ha! I\'m not that smart yet. Here\'s a fake link instead:');
             reflinkmsg = 'https://cimdemo.phtech.com?referral_id=' + convo.extractResponse('referralID');
             convo.say(reflinkmsg);
+            convo.say('My work here is done. :raised_hands:');
             convo.next();
           }
         },
@@ -100,6 +101,7 @@ controller.hears(['referral'], 'direct_message', function(bot,message) {
             convo.say('Here\'s the fake link to your referral:');
             reflinkmsg = 'https://cimdemo.phtech.com?referral_id=' + convo.extractResponse('referralID');
             convo.say(reflinkmsg);
+            convo.say('My work here is done. :raised_hands:');
             convo.next();
           }
         },
@@ -109,6 +111,7 @@ controller.hears(['referral'], 'direct_message', function(bot,message) {
             convo.say('Here\'s the fake link anyway:');
             reflinkmsg = 'https://cimdemo.phtech.com?referral_id=' + convo.extractResponse('referralID');
             convo.say(reflinkmsg);
+            convo.say('My work here is done. :raised_hands:');
             convo.next();
           }
         }
