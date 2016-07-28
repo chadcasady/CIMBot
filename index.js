@@ -54,7 +54,7 @@ controller.hears('.*', ['mention'], function (bot, message) {
 
 controller.hears('help', ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
   bot.reply(message, 'Helping is exactly what I\'m here to do! :sunglasses: :thumbsup:')
-  bot.reply(message, 'If you want me to find a referral, just ask. Otherwise, I\'m just here to look pretty.)
+  bot.reply(message, 'If you want me to find a referral, just ask. Otherwise, I\'m just here to look pretty.')
 })
 
 controller.hears(['eligibility', 'member', 'claim'], ['direct_message', 'direct_mention'], function (bot, message) {
