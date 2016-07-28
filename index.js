@@ -56,7 +56,7 @@ controller.hears(['eligibility', 'member', 'claim'], ['direct_message', 'direct_
   bot.reply(message, 'Sorry. I don\'t know how to deal with that stuff yet.')
 })
 
-controller.hears(['referral'], 'direct_message', function(bot,message) {
+controller.hears(['referral'], ['direct_message', 'direct_mention'], function(bot,message) {
     askReferral = function(response, convo) {
       convo.ask('Do you want me to find a referral for you?', [
         {
