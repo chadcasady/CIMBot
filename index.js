@@ -81,7 +81,7 @@ controller.hears(['referral'], 'direct_message', function(bot,message) {
         {
           pattern: 'email',
           callback: function(response, convo) {
-            convo.say('Ha! I'm not that smart yet. Here\'s a link instead:');
+            convo.say('Ha! I\'m not that smart yet. Here\'s a link instead:');
             reflinkmsg = 'https://cimdemo.phtech.com?referral_id=' + convo.extractResponse('referralID');
             convo.say(reflinkmsg);
             convo.next();
