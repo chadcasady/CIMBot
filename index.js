@@ -39,6 +39,10 @@ controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
   bot.reply(message, 'It\'s nice to talk to you directly.')
 })
 
+controller.hears(['thanks', 'thank you'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+  bot.reply(message, 'Don\'t mention it. :thumbsup:')
+})
+
 controller.hears('.*', ['mention'], function (bot, message) {
   bot.reply(message, 'You really do care about me. :heart:')
 })
@@ -46,10 +50,6 @@ controller.hears('.*', ['mention'], function (bot, message) {
 controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Helping is exactly what I\'m here to do! :sunglasses: :thumbsup:')
   bot.reply(message, 'What do you need help with?')
-})
-
-controller.hears(['thanks', 'thank you'], ['direct_message', 'direct_mention'], function (bot, message) {
-  bot.reply(message, 'Don\'t mention it. :thumbsup:')
 })
 
 controller.hears(['eligibility', 'member', 'claim'], ['direct_message', 'direct_mention'], function (bot, message) {
