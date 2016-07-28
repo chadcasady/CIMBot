@@ -35,7 +35,7 @@ controller.hears(['hello', 'hi'], ['direct_mention', 'mention'], function (bot, 
   bot.reply(message, 'Or is it amiga? I\'m not smart enough to know just yet.')
 })
 
-controller.hears(['hipaa', 'phi'], ['direct_mention', 'mention'], function (bot, message) {
+controller.hears(['hipaa', 'phi'], ['direct_mention', 'direct_message', 'mention'], function (bot, message) {
   bot.reply(message, 'HIPAA (with one P and two A\'s), is not really an issue here since I\'m not sharing PHI.')
   bot.reply(message, 'Don\'t be so paranoid. Sheesh.')
 })
